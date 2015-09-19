@@ -4,7 +4,7 @@
 <br>
 
 <h3>DEMO</h3>
-http://moerj.com/Full-screen-switching/
+http://moerj.com/GitHub/Full-screen-switching/
 
 <br>
 
