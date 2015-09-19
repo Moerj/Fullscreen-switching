@@ -3,7 +3,12 @@
 
 <br>
 
-<h2>Getting Started</h2>
+<h3>DEMO</h3>
+http://moerj.com/Full-screen-switching/
+
+<br>
+
+<h3>Getting Started</h3>
 	<!-- 引入jQuery -->
 	<script src="jquery-1.11.2.min.js"></script>
 	
@@ -11,7 +16,7 @@
 	<script src="pageswitch.js"></script>
 
 <br>
-<h2>HTML结构</h2>
+<h3>HTML</h3>
 
 	<div id="container">
 		<div class="section active" id="section0">
@@ -30,7 +35,7 @@
 
 
 <br>
-<h2>配置</h2>
+<h3>default options</h3>
 	$("#container").switchPage({
 		'container' : '#container',//容器
 		'sections' : '.section',//子容器
