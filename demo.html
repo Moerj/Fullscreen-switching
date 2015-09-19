@@ -176,14 +176,14 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="pageswitch.js"></script>
-	<script type="text/javascript">
+	<script src="jquery-1.11.2.min.js"></script>
+	<script src="pageswitch.js"></script>
+	<script>
 		$(function(){
 			$("#container").switchPage({
 				'loop' : true,
 				'keyboard' : true,
-				'direction' : 'vertical'
+				'direction' : 'vertical' //切换方向 vertical纵向，horizontal横向
 			});
 		});
 	</script>

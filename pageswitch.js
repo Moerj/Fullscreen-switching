@@ -7,8 +7,8 @@
 		'pagination' : true,//是否显示分页
 		'loop' : false,//是否循环
 		'keyboard' : true,//是否支持键盘
-		'direction' : 'vertical',//滑动的方向 horizontal,vertical,
-		'onpageSwitch' : function(pagenum){}
+		'direction' : 'vertical',//滑动的方向 horizontal,vertical
+		'onpageSwitch' : true//允许点击分页按钮切换到对于页面
 	};
 
 	var win = $(window),
@@ -21,10 +21,12 @@
 
 	var arrElement = [];
 
+	var pages;
+
 	var SP = $.fn.switchPage = function(options){
 		opts = $.extend({}, defaults , options||{});
 
-		container = $(opts.container),
+		container = $(opts.container);
 		sections = container.find(opts.sections);
 
 		sections.each(function(){
@@ -44,7 +46,7 @@
 				keyDown();
 			}
 		});
-	}
+	};
 
 	//滚轮向上滑动事件
 	SP.moveSectionUp = function(){
@@ -112,19 +114,22 @@
 		pageHtml += '</ul>';
 		$("body").append(pageHtml);
 
+		pages = $("#pages li");//记录所有的分页按钮
+
 		// 给分页按钮绑定点击事件
-		$("#pages li")
+		if (opts.onpageSwitch) {
+			pages
 			.css('cursor', 'pointer')
 			.click(function() {
 				iIndex = $(this).index();
 				scrollPage(arrElement[iIndex]);
 				paginationHandler();
 			});
+		}
 	}
 
 	//分页事件
 	function paginationHandler(){
-		var pages = $("#pages li");
 		pages.eq(iIndex).addClass("active").siblings().removeClass("active");
 	}
 
