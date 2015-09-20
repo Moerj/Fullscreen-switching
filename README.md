@@ -23,7 +23,7 @@ PC端，引入jQuery，使用滚动条事件切换页面
 	
 引入全屏切换
 
-	<script src="pageswitch.js"></script>
+	<script src="fullscreen-switching.js"></script>
 
 <br>
 <h3>HTML</h3>
