@@ -9,10 +9,17 @@ http://moerj.com/GitHub/Full-screen-switching/
 <br>
 
 <h3>Getting Started</h3>
-	<!-- 引入jQuery -->
+现在程序会根据你引入的js脚本库来觉得进行哪一种初始化方案。
+
+<b>PC端，引入jQuery，使用滚动条事件切换页面</b>
 	<script src="jquery-1.11.2.min.js"></script>
+
+<b>移动端，引入Zepto，使用滑动手势切换页面</b>
+	<script src="zepto.js"></script>
+	<script src="event.js"></script>
+	<script src="touch.js"></script>
 	
-	<!-- 引入全屏切换 -->
+<b>引入全屏切换</b>
 	<script src="pageswitch.js"></script>
 
 <br>
