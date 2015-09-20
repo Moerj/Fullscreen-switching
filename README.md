@@ -57,3 +57,7 @@ PC端，引入jQuery，使用滚动条事件切换页面
 		'direction' : 'vertical',//滑动的方向 horizontal,vertical
 		'onpageSwitch' : true//允许点击分页按钮切换到对应页面
 	});
+
+<br>
+<h3>Let's work together</h3>
+http://moerj.com
