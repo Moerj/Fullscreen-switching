@@ -55,5 +55,5 @@ PC端，引入jQuery，使用滚动条事件切换页面
 		'loop' : true,//是否循环
 		'keyboard' : true,//是否支持键盘
 		'direction' : 'vertical',//滑动的方向 horizontal,vertical
-		'onpageSwitch' : true//允许点击分页按钮切换到对于页面
+		'onpageSwitch' : true//允许点击分页按钮切换到对应页面
 	});
