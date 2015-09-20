@@ -9,7 +9,7 @@ http://moerj.com/GitHub/Full-screen-switching/
 <br>
 
 <h3>Getting Started</h3>
-<b>现在fullscreen-switching会根据你引入的js脚本库来觉得进行哪一种初始化方案。</b>
+<b>现在fullscreen-switching会根据你引入的js脚本库来决定进行哪一种初始化方案。</b>
 
 PC端，引入jQuery，使用滚动条事件切换页面
 
