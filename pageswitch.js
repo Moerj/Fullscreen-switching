@@ -23,6 +23,8 @@
 
 	var pages;
 
+	var Click = 'click';
+
 	var SP = $.fn.switchPage = function(options){
 		opts = $.extend({}, defaults , options||{});
 
@@ -34,15 +36,38 @@
 		});
 
 		return this.each(function(){
-			if(opts.direction == "horizontal"){
-			initLayout();
+			if(opts.direction == "horizontal"){//横向布局
+				initLayout();
 			}
 
-			if(opts.pagination){
+			if (typeof Zepto === 'function') {// Zepto库:滑动手势切换
+				Click = 'tap';// 使用tap事件代替click事件
+				if (opts.direction === "horizontal") {
+					container
+					.on('swipeRight',function(){
+						SP.moveSectionUp();
+					})
+					.on('swipeLeft',function(){
+						SP.moveSectionDown();
+					});
+				}else{
+					container
+					.on('swipeDown',function(){
+						SP.moveSectionUp();
+					})
+					.on('swipeUp',function(){
+						SP.moveSectionDown();
+					});
+				}
+			}else{// jQuery库:滚动条切换
+				$(document).on("mousewheel DOMMouseScroll", MouseWheelHandler);//绑定重写鼠标滑动事件
+			}
+
+			if(opts.pagination){//分页
 				initPagination();
 			}
 
-			if(opts.keyboard){
+			if(opts.keyboard){//键盘事件
 				keyDown();
 			}
 		});
@@ -68,6 +93,7 @@
 		scrollPage(arrElement[iIndex]);
 	};
 
+
 	//私有方法
 	//页面滚动事件
 	function scrollPage(element){
@@ -77,7 +103,6 @@
 	}
 
 	//重写鼠标滑动事件
-	$(document).on("mousewheel DOMMouseScroll", MouseWheelHandler);
 	function MouseWheelHandler(e) {
 		e.preventDefault();
 		var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;
@@ -91,7 +116,7 @@
 		}
 		return false;
 	}
-
+	
 	//横向布局初始化
 	function initLayout(){
 		var length = sections.length,
@@ -120,7 +145,7 @@
 		if (opts.onpageSwitch) {
 			pages
 			.css('cursor', 'pointer')
-			.click(function() {
+			.on( Click, function() {
 				iIndex = $(this).index();
 				scrollPage(arrElement[iIndex]);
 				paginationHandler();
@@ -225,4 +250,4 @@
 		});
 	}
 
-})(jQuery);
+})($);

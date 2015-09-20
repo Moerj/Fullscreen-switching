@@ -176,15 +176,24 @@
 			</div>
 		</div>
 	</div>
-	<script src="jquery-1.11.2.min.js"></script>
+
+	<!-- PC端 -->
+	<!--<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>-->
+
+	<!-- 移动端 -->
+	<script src="zepto.js"></script>
+	<script src="event.js"></script>
+	<script src="touch.js"></script>
+
+	<!-- 全屏切换 -->
 	<script src="pageswitch.js"></script>
+
+	<!-- 参数配置 -->
 	<script>
-		$(function(){
-			$("#container").switchPage({
-				'loop' : true,
-				'keyboard' : true,
-				'direction' : 'vertical' //切换方向 vertical纵向，horizontal横向
-			});
+		$("#container").switchPage({
+			// 'loop' : true,
+			'keyboard' : true,
+			'direction' : 'vertical' //切换方向 vertical 纵向	horizontal 横向
 		});
 	</script>
 </body>
