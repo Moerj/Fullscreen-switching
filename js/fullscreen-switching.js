@@ -25,6 +25,8 @@
 
 	var Click = 'click';
 
+	var timeScroll ;//滚动间隔定时器
+
 	var SP = $.fn.switchPage = function(options){
 		opts = $.extend({}, defaults , options||{});
 
@@ -186,9 +188,15 @@
 				"transition":"all "+opts.duration+"ms "+opts.easing,
 				"transform":"translate3d("+traslate+")"
 			});
-			container.on("webkitTransitionEnd msTransitionend mozTransitionend transitionend",function(){
-				canScroll = true;
-			});
+
+			// 切换过渡动画结束后，允许第二次滚动
+			/*container.on("webkitTransitionEnd msTransitionend mozTransitionend transitionend",function(){
+				canScroll = true; //chrome动画结束判断与其他浏览器不一致，导致其滚动切换过快时BUG
+			});*/
+
+			// 一定时间间隔后，允许第二次滚动
+			clearTimeout(timeScroll);
+			timeScroll = setTimeout(function(){container.css({"transition":"none"});canScroll = true;},opts.duration);
 		}else{
 			var cssObj = (opts.direction == "horizontal")?{left: -dest.left}:{top: -dest.top};
 			container.animate(cssObj, opts.duration, function(){
