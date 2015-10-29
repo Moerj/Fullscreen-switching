@@ -181,6 +181,7 @@
 			transition = ["-webkit-transition","-ms-transition","-moz-transition","transition"];
 
 		canScroll = false;
+
 		if(isSuportCss(transform) && isSuportCss(transition)){
 			var traslate = "";
 			if(opts.direction == "horizontal"){
@@ -189,10 +190,12 @@
 				traslate = "0px, -"+dest.top+"px, 0px";
 			}
 			container.css({
+				"-webkit-transition":"all "+opts.duration+"ms "+opts.easing,
 				"transition":"all "+opts.duration+"ms "+opts.easing,
+				"-webkit-transform":"translate3d("+traslate+")",
 				"transform":"translate3d("+traslate+")"
 			});
-
+			
 			// 切换过渡动画结束后，允许第二次滚动
 			/*container.on("webkitTransitionEnd msTransitionend mozTransitionend transitionend",function(){
 				canScroll = true; //chrome动画结束判断与其他浏览器不一致，导致其滚动切换过快时BUG
