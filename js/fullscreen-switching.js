@@ -43,6 +43,10 @@
 			}
 
 			if (typeof Zepto === 'function') {// Zepto库:滑动手势切换
+				// 页面高度超过设备可见高度时，阻止掉touchmove事件。
+				document.body.addEventListener('touchmove', function (event) {
+				    event.preventDefault();
+				}, false);
 				Click = 'tap';// 使用tap事件代替click事件
 				if (opts.direction === "horizontal") {
 					container
