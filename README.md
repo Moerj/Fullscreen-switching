@@ -4,11 +4,8 @@
 <br>
 
 <h3>DEMO</h3>
-<b>PC端</b>
 http://moerj.com/GitHub/Fullscreen-switching/
-<br>
-<b>移动端</b>
-http://moerj.com/GitHub/Fullscreen-switching/mobile.html
+
 
 <br>
 
