@@ -37,6 +37,11 @@
 			arrElement.push($(this));
 		});
 
+		/**
+		 *  this 相当于调用SP函数的jQuery对象，例如：$('#testBox').switchPage({...})
+		 *  demo中在index.html页面进行了调用，这里简称它为'实例容器'
+		 *  return this.each() 的作用就是在实例化调用完，并且'实例容器'存在的情况下，进行初始化
+		 */
 		return this.each(function(){
 			if(opts.direction == "horizontal"){//横向布局
 				initLayout();
@@ -135,9 +140,6 @@
 	//初始化分页
 	function initPagination(){
 		var length = sections.length;
-		if(length){
-
-		}
 		var pageHtml = '<ul id="pages"><li class="active"></li>';
 		for(var i=1;i<length;i++){
 			pageHtml += '<li></li>';
